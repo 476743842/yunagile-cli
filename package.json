@@ -1,13 +1,13 @@
 {
   "name": "yunagile",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "云南软捷科技app脚手架",
   "bin": {
     "yunagile": "./index.js"
   },
   "main": "index.js",
   "scripts": {
-    "test": "ygtest"
+    "test": "yunagile test"
   },
   "keywords": [
     "软捷科技"

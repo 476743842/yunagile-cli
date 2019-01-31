@@ -53,10 +53,13 @@ function post(action, param, callBack) {
             } catch (error) {
                 body = { msg: "解析结果时出错!" };
             }
+            if(res['statusCode'] == 550 ){
+                return utils.print("登录超时,请重新登录!", "red");
+            }
             if (body && body['status'] == "SUCCESS") {
                 callBack && callBack(body.data, true, "success");
             } else {
-                callBack && callBack(body.data, false, body.msg);
+                callBack && callBack(body, false, body.msg);
             }
         }
     });

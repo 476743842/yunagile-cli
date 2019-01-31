@@ -7,13 +7,14 @@ const file = require('./scripts/file')
 const login = require('./scripts/login')
 /**导入通知的命令 */
 const notice = require('./app/notice/cmd')
+const daily = require('./app/daily/cmd')
 /**查看cli版本 */
 program
   .version(pkg.version);
 /**登录操作 */
 program
   .command('login')
-  .description('登录至软捷后台,只需登录一次,以后将会自动登录!')
+  .description('登录至软捷后台!(只需登录一次,以后将会自动登录)')
   .action(() => {
     login.beforeLogin(true);
   });
@@ -29,10 +30,18 @@ program
   .command('logout')
   .description('退出登录!(还没完善)')
   .action(() => {
-    console.log("退出登录成功");
+    login.logout();
   });
-
+/**创建项目 */
+program
+  .command('create')
+  .description('生成新的p9项目或者app项目')
+  .action(() => {
+      
+  });
+//注册应用上的cli
 notice.registerCmd(program);
+daily.registerCmd(program);
 
 program.parse(process.argv);
 module.exports={file};

@@ -101,6 +101,19 @@ function login(username, password,directLogin) {
         }
     });
 }
+function logout(){
+    delete config['username'];
+    delete config['password'];
+    delete config['bsessionid'];
+    var data = JSON.stringify(config,null,4);
+    fs.writeFile(path.resolve(__dirname,"../config/config.json"),data,function(err){
+        if(err){
+            utils.print(err,"red");
+        }else{
+            utils.print("退出登录成功","green");
+        }
+    });
+}
 /**
  * @description 存到json文件中
  * @param username 用户名
@@ -120,4 +133,4 @@ function writeJson(username,password,bsessionid){
     });
 }
 
-module.exports = { beforeLogin,login };
+module.exports = { beforeLogin,login,logout };
