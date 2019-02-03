@@ -57,11 +57,11 @@ function post(action, param, callBack) {
                 return utils.print("登录超时,请重新登录!", "red");
             }
             if (body && body['status'] == "SUCCESS") {
-                callBack && callBack(body.data, true, "success");
+                callBack && callBack(body, true, "success");
             } else {
                 callBack && callBack(body, false, body.msg);
             }
         }
     });
 }
-module.exports={post};
+module.exports= {post};

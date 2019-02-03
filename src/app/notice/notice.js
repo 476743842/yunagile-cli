@@ -42,7 +42,7 @@ function noticeInit(){
 function queryNotice() {
     ajax.post("/notice/queryCompanyNoticeAction",params,function(data,flag,msg){
         if(flag){
-            var cdata = JSON.parse(data.data);
+            var cdata = JSON.parse(data.data.data);
             var rows = cdata.rows;
             if(rows && rows.length==0){
                 utils.print("暂无通知公告!");

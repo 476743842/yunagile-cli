@@ -31,8 +31,8 @@ function beforeLogin(relogin) {
     if(config['username']&&config['password']&&relogin){
         login(config['username'],config['password'],true);
     }else{
-        inquirer.prompt(questions).then((answers) => {
-            var _answers = JSON.parse(JSON.stringify(answers))
+        inquirer.prompt(questions).then(function(answers) {
+            var _answers = JSON.parse(JSON.stringify(answers));
             if(!_answers['username']){
                 return console.log("请输入用户名！");
             }
