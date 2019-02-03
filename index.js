@@ -1,13 +1,12 @@
 #!/usr/bin/env node
-const program = require('commander')
-const fs = require('fs')
-const path = require('path')
-const pkg = require('./package.json')
-const file = require('./scripts/file')
-const login = require('./scripts/login')
+const program = require('commander');
+const fs = require('fs');
+const path = require('path');
+const pkg = require('./package.json');
+const login = require('./src/scripts/login');
 /**导入通知的命令 */
-const notice = require('./app/notice/cmd')
-const daily = require('./app/daily/cmd')
+const notice = require('./src/app/notice/cmd');
+const daily = require('./src/app/daily/cmd');
 /**查看cli版本 */
 program
   .version(pkg.version);
@@ -44,5 +43,5 @@ notice.registerCmd(program);
 daily.registerCmd(program);
 
 program.parse(process.argv);
-module.exports={file};
+module.exports={login};
 
