@@ -64,4 +64,45 @@ function post(action, param, callBack) {
         }
     });
 }
-module.exports= {post};
+
+var http = require("http"); // 引入http模块
+ 
+/**
+ * http模块发送请求
+ * @param action
+ * @param params 参数
+ */
+function syncPost(action,params) {
+    var bid = config['bsessionid'];
+    if (!bid) return utils.print("请先登录再操作!", "red");
+    if (action.indexOf("bsessionid=") == -1) {
+        if (action.indexOf("?") > -1) {
+            action += "&as_call_type=ajax&bsessionid=" + bid;
+        } else {
+            action += "?as_call_type=ajax&bsessionid=" + bid;
+        }
+    }
+    var content = params ? qs.stringify(params) : null;
+    var options = {
+        method: 'post',
+        url: config.rootPath + action,
+        form: content,
+        type: "json",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+        }
+    };
+    
+    let data = '';
+    return new Promise(function (resolve, reject) {
+        request(options, function(err, res, body) {
+            //console.log(body);
+            resolve(body);
+        });
+        // req.on('error', (e) => {
+        //     resolve({result: false, errmsg: e.message});
+        // });
+        // req.end();
+    });
+}
+module.exports= {post,syncPost};
