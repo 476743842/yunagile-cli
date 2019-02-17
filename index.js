@@ -3,10 +3,10 @@ const program = require('commander');
 const fs = require('fs');
 const path = require('path');
 const pkg = require('./package.json');
-const login = require('./src/scripts/login');
+const login = require('./dist/scripts/login');
 /**导入通知的命令 */
-const notice = require('./src/app/notice/cmd');
-const daily = require('./src/app/daily/cmd');
+const notice = require('./dist/app/notice/cmd');
+const daily = require('./dist/app/daily/cmd');
 /**查看cli版本 */
 program
   .version(pkg.version);
