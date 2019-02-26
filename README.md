@@ -54,7 +54,7 @@ $ yunagile relogin
 
 强制重新登录
 
-## 退出登录 yunagile logout
+## 退出登录
 
 ```shell
 $ yunagile logout
@@ -83,3 +83,55 @@ $ yunagile notice -v
 ```
 使用该命令即可查看通知公告
 
+## 日报功能
+
+```shell
+$ yunagile daily -h
+
+Usage: daily [options]
+
+日报功能(查日报,写日报)
+
+Options:
+  -v,--viewself          查看我的日报
+  -o,--viewother         查看他人的日报
+  -w,--writeday [value]  写日报
+  -s,--search [value]    搜索关键字
+  -p,--project           查找项目
+  -h, --help             output usage information
+```
+
+### 项目查询
+
+```shell
+$ yunagile daily -p             //查询所有项目
+```
+
+```shell
+$ yunagile daily -p -s 长安      //模糊查询项目
+```
+
+### 日报填写
+
+```shell
+$ yunagile daily -w
+```
+注：该命令需要与dayreport.json模板进行配合使用，dayreport.json模板内容如下：
+
+``` js
+{
+	"date":"2019-02-25",
+	"content":"1.测试日报\n2.测试内容",
+	"project":[{
+		"name":"天津中环",         //可随意填写
+		"code":"20171215027",     //项目编码,可通过yunagile daily -p -s 查找
+		"pt":"100"                //项目占比
+	}]
+}
+```
+该模板文件必须在执行命令的目录下，如下图：
+
+<img src="https://github.com/qq476743842/image/blob/master/cli/cli.png?raw=true"/>
+
+当前执行命令的路径即是：C:\Users\Administrator\
+所以模板文件应该复制到该目录下
