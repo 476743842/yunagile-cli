@@ -38,3 +38,16 @@ Commands:
   daily [options]   日报功能(查日报,写日报)
 ```
 
+## 登录 yunagile login
+
+登录在进行首次操作时，需要先执行 yunagile login 命令，该命令登录过一次之后将会记住密码，下次调用yunagile login 时将自动登录
+
+## 强制登录 yunagile relogin
+
+强制重新登录
+
+## 退出登录 yunagile logout
+
+退出登录
+
+
