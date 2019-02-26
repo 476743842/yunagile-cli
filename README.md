@@ -38,16 +38,48 @@ Commands:
   daily [options]   日报功能(查日报,写日报)
 ```
 
-## 登录 yunagile login
+## 登录 
+
+```shell
+$ yunagile login
+```
 
 登录在进行首次操作时，需要先执行 yunagile login 命令，该命令登录过一次之后将会记住密码，下次调用yunagile login 时将自动登录
 
-## 强制登录 yunagile relogin
+## 强制登录 
+
+```shell
+$ yunagile relogin
+```
 
 强制重新登录
 
 ## 退出登录 yunagile logout
 
+```shell
+$ yunagile logout
+```
+
 退出登录
 
+## 通知公告
+
+```shell
+$ yunagile notice -h
+
+Usage: notice [options]
+
+通知公告
+
+Options:
+  -v,--view   查看通知公告
+  -h, --help  output usage information
+```
+
+### 查看通知公告
+
+```shell
+$ yunagile notice -v
+```
+使用该命令即可查看通知公告
 
